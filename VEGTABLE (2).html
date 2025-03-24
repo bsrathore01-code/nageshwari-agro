@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nageshwari Agro - Rate List</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #22c55e;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(34, 197, 94, 0.8);
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        #searchBox {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #22c55e;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 0px 15px rgba(34, 197, 94, 0.3);
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+            color: white;
+        }
+        th {
+            background: #22c55e;
+            color: #0f172a;
+            font-weight: bold;
+        }
+        tr:hover {
+            background: rgba(34, 197, 94, 0.3);
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button {
+            background: #22c55e;
+            color: white;
+            padding: 12px 18px;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #1ea94f;
+        }
+        .contact {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nageshwari Agro</h1>
+        <h2>Fresh Vegetables Rate List</h2>
+
+        <!-- Search Box -->
+        <input type="text" id="searchBox" placeholder="Search items...">
+
+        <h2>Desi Vegetables</h2>
+        <table>
+            <tr><th>Item Name</th><th>Rate/KG</th></tr>
+            <tr><td>Onion</td><td>₹32</td></tr>
+            <tr><td>Potato</td><td>₹18</td></tr>
+            <tr><td>Tomato</td><td>₹12</td></tr>
+        </table>
+
+        <h2>Exotic Vegetables</h2>
+        <table>
+            <tr><th>Item Name</th><th>Rate/KG</th></tr>
+            <tr><td>Broccoli</td><td>₹100</td></tr>
+            <tr><td>Red Capsicum</td><td>₹100</td></tr>
+            <tr><td>Yellow Capsicum</td><td>₹100</td></tr>
+        </table>
+
+        <h2>Fruits</h2>
+        <table>
+            <tr><th>Item Name</th><th>Rate/KG</th></tr>
+            <tr><td>Lemon</td><td>₹145</td></tr>
+            <tr><td>Sweet Lime</td><td>₹90</td></tr>
+            <tr><td>Apples</td><td>₹180</td></tr>
+        </table>
+
+        <h2>Leafy Vegetables</h2>
+        <table>
+            <tr><th>Item Name</th><th>Rate/Bunch</th></tr>
+            <tr><td>Spinach</td><td>₹30</td></tr>
+            <tr><td>Mint</td><td>₹40</td></tr>
+            <tr><td>Coriander</td><td>₹25</td></tr>
+        </table>
+
+        <!-- Smart Buttons -->
+        <div class="button-container">
+            <a class="button" href="https://wa.me/919898392773?text=Hello,%20I%20want%20to%20order%20vegetables." target="_blank">📲 Order on WhatsApp</a>
+            <a class="button" href="https://g.co/kgs/TLXukt7" target="_blank">📍 View on Google Maps</a>
+        </div>
+        
+        <div class="contact">
+            <p><strong>Address:</strong> 3 GF Yogeshwar Apartment, Behind Shanti Medical Store, Near Judges Bungalow Cross Road, Bodakdev, Ahmedabad, Gujarat</p>
+            <p><strong>Contact:</strong> +91 9898392773</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("searchBox");
+            const tables = document.querySelectorAll("table");
+
+            searchInput.addEventListener("keyup", function () {
+                const filter = searchInput.value.toLowerCase();
+
+                tables.forEach((table) => {
+                    const rows = table.getElementsByTagName("tr");
+
+                    for (let i = 1; i < rows.length; i++) {
+                        let item = rows[i].getElementsByTagName("td")[0];
+                        if (item) {
+                            let textValue = item.textContent || item.innerText;
+                            rows[i].style.display = textValue.toLowerCase().includes(filter) ? "" : "none";
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
